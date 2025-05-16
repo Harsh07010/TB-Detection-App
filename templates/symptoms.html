@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+
+{% block title %}Symptom Checker - TB Detection System{% endblock %}
+
+{% block content %}
+<div>
+    <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">TB Symptom Checker</h1>
+    <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">
+        Please answer the following questions about your symptoms and risk factors to help us assess your TB risk.
+    </p>
+
+    <form method="POST" class="max-w-3xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Age -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Age above 50:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Age" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Age" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Past history of TB -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Past history of TB:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Past history of TB" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Past history of TB" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Smoking -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Smoking:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Smoking" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Smoking" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Diabetes -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Diabetes:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Diabetes" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Diabetes" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- BMI less than equal to 18.5 -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">BMI less than equal to 18.5:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="BMI less than equal to 18.5" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="BMI less than equal to 18.5" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- TB in any Family member -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">TB in any Family member:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="TB in any Family member" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="TB in any Family member" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Fever -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Fever:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Fever" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Fever" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Coughing up blood -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Coughing up blood:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Coughing up blood" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Coughing up blood" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Cough for more than 2 weeks -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Cough for more than 2 weeks:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Cough for more than 2 weeks" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Cough for more than 2 weeks" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Weight loss -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Weight loss:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Weight loss" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Weight loss" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Night sweat -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Night sweat:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Night sweat" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Night sweat" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Chest Pain -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Chest Pain:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Chest Pain" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Chest Pain" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Shortness of breath -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Shortness of breath:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Shortness of breath" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Shortness of breath" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Fatigue -->
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Fatigue:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="Fatigue" value="yes" required class="radio-input mr-2">
+                        <span>Yes</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Fatigue" value="no" class="radio-input mr-2">
+                        <span>No</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary px-8 py-3 text-lg">Submit Symptoms</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

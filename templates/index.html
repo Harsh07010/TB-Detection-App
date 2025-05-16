@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Home - TB Detection System{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Welcome to the TB Detection System</h1>
+
+    <div class="max-w-3xl mx-auto">
+        <p class="text-lg text-gray-600 mb-8">
+            Our advanced system uses machine learning to help detect tuberculosis through symptom analysis and chest
+            X-ray evaluation.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-blue-800 mb-3">Symptom Analysis</h3>
+                <p class="text-gray-600 mb-4">Answer questions about your symptoms to get an initial risk assessment for
+                    tuberculosis.</p>
+                {% if session.username %}
+                <a href="/symptoms" class="btn btn-primary inline-block">Check Symptoms</a>
+                {% else %}
+                <a href="/login" class="btn btn-primary inline-block">Login to Start</a>
+                {% endif %}
+            </div>
+
+            <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-blue-800 mb-3">X-ray Analysis</h3>
+                <p class="text-gray-600 mb-4">Upload a chest X-ray for our AI to analyze and detect potential signs of
+                    tuberculosis.</p>
+                {% if session.username %}
+                <a href="/xray" class="btn btn-primary inline-block">Upload X-ray</a>
+                {% else %}
+                <a href="/login" class="btn btn-primary inline-block">Login to Start</a>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if not session.username %}
+        <div class="mt-8">
+            <a href="/login" class="btn btn-primary mr-4">Login</a>
+            <a href="/signup" class="btn btn-outline">Sign Up</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
